@@ -1,10 +1,10 @@
 from bit2me.types import OrderResponse
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 adapter = TypeAdapter(OrderResponse)
 
-class Get(AuthEndpoint):
+class Get(Endpoint):
   async def get(self, id: str, *, validate: bool = True) -> OrderResponse:
     """Get order details by order identifier.
     

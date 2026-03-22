@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing_extensions import NotRequired, TypedDict
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class DataItem(TypedDict):
   orderId: NotRequired[str]
@@ -42,7 +42,7 @@ class ListLoanOrdersResponse(TypedDict):
 
 adapter = TypeAdapter(ListLoanOrdersResponse)
 
-class List(AuthEndpoint):
+class List(Endpoint):
   async def list(
     self,
     *,

@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing_extensions import NotRequired, TypedDict
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class LoanOrderResponse(TypedDict):
   orderId: NotRequired[str]
@@ -38,7 +38,7 @@ class LoanOrderResponse(TypedDict):
 
 adapter = TypeAdapter(LoanOrderResponse)
 
-class Get(AuthEndpoint):
+class Get(Endpoint):
   async def get(self, order_id: str, *, validate: bool = True) -> LoanOrderResponse:
     """Get a user loan order
     

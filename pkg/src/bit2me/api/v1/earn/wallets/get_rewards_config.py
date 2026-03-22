@@ -1,10 +1,10 @@
 from bit2me.types import EarnRewardsConfigResponse
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 adapter = TypeAdapter(EarnRewardsConfigResponse)
 
-class GetRewardsConfig(AuthEndpoint):
+class GetRewardsConfig(Endpoint):
   async def get_rewards_config(
     self,
     wallet_id: str,

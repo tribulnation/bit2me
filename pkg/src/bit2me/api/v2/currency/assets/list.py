@@ -1,6 +1,6 @@
 from typing_extensions import NotRequired, TypedDict
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class Extra(TypedDict):
   symbol: str
@@ -24,7 +24,7 @@ class Extra(TypedDict):
 
 adapter = TypeAdapter(dict[str, Extra])
 
-class List(AuthEndpoint):
+class List(Endpoint):
   async def list(
     self,
     *,

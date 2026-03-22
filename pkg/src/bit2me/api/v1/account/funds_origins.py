@@ -1,6 +1,6 @@
 from typing_extensions import NotRequired, TypedDict
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class DataItem(TypedDict):
   id: NotRequired[str]
@@ -14,7 +14,7 @@ class ListFundsOriginsResponse(TypedDict):
 
 adapter = TypeAdapter(ListFundsOriginsResponse)
 
-class FundsOrigins(AuthEndpoint):
+class FundsOrigins(Endpoint):
   async def __call__(
     self,
     *,

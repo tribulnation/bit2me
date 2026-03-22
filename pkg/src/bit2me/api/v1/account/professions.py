@@ -1,6 +1,6 @@
 from typing_extensions import TypedDict
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class DataItem(TypedDict):
   id: str
@@ -14,7 +14,7 @@ class ListProfessionsResponse(TypedDict):
 
 adapter = TypeAdapter(ListProfessionsResponse)
 
-class Professions(AuthEndpoint):
+class Professions(Endpoint):
   async def __call__(
     self,
     *,

@@ -1,4 +1,4 @@
-from bit2me.core.mixin import AuthRouter
+from bit2me.core.mixin import Router
 from .account import Account
 from .blockchain_manager import BlockchainManager
 from .currency import Currency
@@ -12,7 +12,7 @@ from .trading import Trading
 from .verifier import Verifier
 from .wallet import Wallet
 
-class V1(AuthRouter):
+class V1(Router):
   account: Account
   blockchain_manager: BlockchainManager
   currency: Currency

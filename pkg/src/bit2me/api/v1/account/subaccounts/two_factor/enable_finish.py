@@ -1,7 +1,7 @@
 from typing_extensions import TypedDict
 from bit2me.types import BooleanResultResponse
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class EndSubaccountTwoFactorRequest(TypedDict):
   subaccountUserId: str
@@ -9,7 +9,7 @@ class EndSubaccountTwoFactorRequest(TypedDict):
 
 adapter = TypeAdapter(BooleanResultResponse)
 
-class EnableFinish(AuthEndpoint):
+class EnableFinish(Endpoint):
   async def enable_finish(
     self,
     end_subaccount_two_factor_request: EndSubaccountTwoFactorRequest,

@@ -1,6 +1,6 @@
 from typing_extensions import NotRequired, TypedDict
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class TellerOrderStatusResponse(TypedDict):
   status: NotRequired[str]
@@ -8,7 +8,7 @@ class TellerOrderStatusResponse(TypedDict):
 
 adapter = TypeAdapter(TellerOrderStatusResponse)
 
-class GetStatus(AuthEndpoint):
+class GetStatus(Endpoint):
   async def get_status(self, *, id: str, validate: bool = True) -> TellerOrderStatusResponse:
     """Gets order status. If no order is found, "pending" status is returned as default value.
     

@@ -2,7 +2,7 @@ from datetime import datetime
 from typing_extensions import Literal, NotRequired, TypedDict
 from bit2me.types import DepositEstimation, FundsOrigin, Phone, UserType
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class AttorneyInFact(TypedDict):
   name: NotRequired[str]
@@ -114,7 +114,7 @@ class AccountDetailsV3response(TypedDict):
 
 adapter = TypeAdapter(AccountDetailsV3response)
 
-class Get(AuthEndpoint):
+class Get(Endpoint):
   async def get(self, *, validate: bool = True) -> AccountDetailsV3response:
     """Get account details, personal data is returned masked
     

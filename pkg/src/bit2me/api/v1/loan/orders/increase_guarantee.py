@@ -1,14 +1,14 @@
 from typing_extensions import TypedDict
 from bit2me.types import LoanAction
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class IncreaseGuaranteeRequest(TypedDict):
   guaranteeAmount: str
 
 adapter = TypeAdapter(LoanAction)
 
-class IncreaseGuarantee(AuthEndpoint):
+class IncreaseGuarantee(Endpoint):
   async def increase_guarantee(
     self,
     order_id: str,

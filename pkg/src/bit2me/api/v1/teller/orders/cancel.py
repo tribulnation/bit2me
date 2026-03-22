@@ -1,11 +1,11 @@
 from typing_extensions import TypedDict
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class TellerOrderCancelRequest(TypedDict):
   orderId: str
   description: str
 
-class Cancel(AuthEndpoint):
+class Cancel(Endpoint):
   async def cancel(
     self,
     teller_order_cancel_request: TellerOrderCancelRequest,

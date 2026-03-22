@@ -1,14 +1,14 @@
 from typing_extensions import TypedDict
 from bit2me.types import LoanAction
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class PaybackGuaranteeRequest(TypedDict):
   paybackAmount: str
 
 adapter = TypeAdapter(LoanAction)
 
-class Payback(AuthEndpoint):
+class Payback(Endpoint):
   async def payback(
     self,
     order_id: str,

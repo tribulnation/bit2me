@@ -1,6 +1,6 @@
 from typing_extensions import TypedDict
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class DataItem(TypedDict):
   id: str
@@ -13,7 +13,7 @@ class DepositEstimationResponse(TypedDict):
 
 adapter = TypeAdapter(DepositEstimationResponse)
 
-class DepositEstimations(AuthEndpoint):
+class DepositEstimations(Endpoint):
   async def __call__(self, *, validate: bool = True) -> DepositEstimationResponse:
     """Return all deposit estimates.
     

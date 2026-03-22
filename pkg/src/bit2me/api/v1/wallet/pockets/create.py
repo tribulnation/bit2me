@@ -1,6 +1,6 @@
 from typing_extensions import TypedDict
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class CreatePocketRequest(TypedDict):
   currency: str
@@ -12,7 +12,7 @@ class CreatePocketResponse(TypedDict):
 
 adapter = TypeAdapter(CreatePocketResponse)
 
-class Create(AuthEndpoint):
+class Create(Endpoint):
   async def create(
     self,
     create_pocket_request: CreatePocketRequest,

@@ -1,7 +1,7 @@
 from typing_extensions import TypedDict
 from bit2me.types import BooleanResultResponse
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class Entry(TypedDict):
   pocketId: str
@@ -9,7 +9,7 @@ class Entry(TypedDict):
 
 adapter = TypeAdapter(BooleanResultResponse)
 
-class Claim(AuthEndpoint):
+class Claim(Endpoint):
   async def claim(
     self,
     list_entry: list[Entry],

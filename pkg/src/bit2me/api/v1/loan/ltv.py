@@ -1,6 +1,6 @@
 from typing_extensions import NotRequired, TypedDict
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class LoanLtvResponse(TypedDict):
   guaranteeCurrency: NotRequired[str]
@@ -15,7 +15,7 @@ class LoanLtvResponse(TypedDict):
 
 adapter = TypeAdapter(LoanLtvResponse)
 
-class Ltv(AuthEndpoint):
+class Ltv(Endpoint):
   async def __call__(
     self,
     *,

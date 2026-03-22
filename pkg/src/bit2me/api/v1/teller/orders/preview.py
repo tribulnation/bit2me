@@ -1,7 +1,7 @@
 from typing_extensions import Any, Literal, NotRequired, TypedDict
 from bit2me.types import TransactionSubsFeeTypeParam
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class Benefit(TypedDict):
   amount: str | float
@@ -40,7 +40,7 @@ class TellerCreateOrderProformaResponse(TypedDict):
 
 adapter = TypeAdapter(TellerCreateOrderProformaResponse)
 
-class Preview(AuthEndpoint):
+class Preview(Endpoint):
   async def preview(
     self,
     teller_create_order_proforma_request: TellerCreateOrderProformaRequest,

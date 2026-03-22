@@ -1,14 +1,14 @@
 from typing_extensions import TypedDict
 from bit2me.types import BooleanResultResponse
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class UpdateTransactionRequest(TypedDict):
   note: str
 
 adapter = TypeAdapter(BooleanResultResponse)
 
-class Update(AuthEndpoint):
+class Update(Endpoint):
   async def update(
     self,
     id: str,

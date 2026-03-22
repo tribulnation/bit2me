@@ -7,7 +7,7 @@ from bit2me.types import (
   TransactionSubsFeeTypeParam
 )
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class BankAccount(TypedDict):
   bankAccount: str
@@ -103,7 +103,7 @@ class WalletTransactionProformaResponse(TypedDict):
 
 adapter = TypeAdapter(WalletTransactionProformaResponse)
 
-class Preview(AuthEndpoint):
+class Preview(Endpoint):
   async def preview(
     self,
     wallet_transaction_proforma_request: WalletTransactionProformaRequest,

@@ -1,6 +1,6 @@
 from typing_extensions import Literal, NotRequired, TypedDict
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class Entry(TypedDict):
   iso: str
@@ -11,7 +11,7 @@ class Entry(TypedDict):
 
 adapter = TypeAdapter(list[Entry])
 
-class Countries(AuthEndpoint):
+class Countries(Endpoint):
   async def countries(
     self,
     country_isocode: str,

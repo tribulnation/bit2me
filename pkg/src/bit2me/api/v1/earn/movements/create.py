@@ -1,6 +1,6 @@
 from typing_extensions import Literal, NotRequired, TypedDict
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class CreateEarnMovementRequest(TypedDict):
   currency: str
@@ -17,7 +17,7 @@ class CreateEarnMovementResponse(TypedDict):
 
 adapter = TypeAdapter(CreateEarnMovementResponse)
 
-class Create(AuthEndpoint):
+class Create(Endpoint):
   async def create(
     self,
     create_earn_movement_request: CreateEarnMovementRequest,

@@ -1,5 +1,5 @@
-from bit2me.core.mixin import AuthRouter
+from bit2me.core.mixin import Router
 from .addresses import Addresses
 
-class Account(AuthRouter):
+class Account(Router):
   addresses: Addresses

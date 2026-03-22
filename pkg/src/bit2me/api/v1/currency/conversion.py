@@ -1,9 +1,9 @@
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 adapter = TypeAdapter(list[str])
 
-class Conversion(AuthEndpoint):
+class Conversion(Endpoint):
   async def conversion(
     self,
     *,

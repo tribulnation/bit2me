@@ -1,7 +1,7 @@
 from typing_extensions import NotRequired, TypedDict
 from bit2me.types import BooleanResultResponse, PocketColor
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class UpdateWalletPocketRequest(TypedDict):
   id: str
@@ -10,7 +10,7 @@ class UpdateWalletPocketRequest(TypedDict):
 
 adapter = TypeAdapter(BooleanResultResponse)
 
-class Update(AuthEndpoint):
+class Update(Endpoint):
   async def update(
     self,
     update_wallet_pocket_request: UpdateWalletPocketRequest,

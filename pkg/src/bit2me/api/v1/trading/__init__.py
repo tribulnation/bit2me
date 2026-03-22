@@ -1,4 +1,4 @@
-from bit2me.core.mixin import AuthRouter
+from bit2me.core.mixin import Router
 from .balance import Balance
 from .candles import Candles
 from .funding_movements import FundingMovements
@@ -7,7 +7,7 @@ from .orders import Orders
 from .trades import Trades
 from .wallets import Wallets
 
-class Trading(AuthRouter):
+class Trading(Router):
   balance: Balance
   candles: Candles
   funding_movements: FundingMovements

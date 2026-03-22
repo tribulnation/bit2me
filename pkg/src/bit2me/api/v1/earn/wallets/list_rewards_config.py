@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing_extensions import TypedDict
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class Entry(TypedDict):
   walletId: str
@@ -14,7 +14,7 @@ class Entry(TypedDict):
 
 adapter = TypeAdapter(list[Entry])
 
-class ListRewardsConfig(AuthEndpoint):
+class ListRewardsConfig(Endpoint):
   async def list_rewards_config(self, *, validate: bool = True) -> list[Entry]:
     """Retrieves rewards configuration for user wallets
     

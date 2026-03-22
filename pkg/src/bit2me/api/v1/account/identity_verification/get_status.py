@@ -1,7 +1,7 @@
 from typing_extensions import Literal, NotRequired, TypedDict
 from bit2me.types import PointsParam
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class ExtraMeasuresNotApproved(TypedDict):
   compliance: list[Literal['MR2']]
@@ -30,7 +30,7 @@ class IdentityVerificationResponse(TypedDict):
 
 adapter = TypeAdapter(IdentityVerificationResponse)
 
-class GetStatus(AuthEndpoint):
+class GetStatus(Endpoint):
   async def get_status(self, *, validate: bool = True) -> IdentityVerificationResponse:
     """Return the current status of the identity verification
     

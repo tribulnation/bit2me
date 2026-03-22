@@ -9,11 +9,11 @@ from bit2me.types import (
   SortDirectionParam
 )
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 adapter = TypeAdapter(list[OrderResponse])
 
-class List(AuthEndpoint):
+class List(Endpoint):
   async def list(
     self,
     *,

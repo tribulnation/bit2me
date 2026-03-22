@@ -1,6 +1,6 @@
 from typing_extensions import NotRequired, TypedDict
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class CurrencyAssetResponse(TypedDict):
   symbol: str
@@ -31,7 +31,7 @@ class CurrencyAssetResponse(TypedDict):
 
 adapter = TypeAdapter(CurrencyAssetResponse)
 
-class Get(AuthEndpoint):
+class Get(Endpoint):
   async def get(
     self,
     symbol: str,

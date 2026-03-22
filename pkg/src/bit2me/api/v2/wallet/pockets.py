@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing_extensions import NotRequired, TypedDict
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class Entry(TypedDict):
   id: NotRequired[str]
@@ -14,7 +14,7 @@ class Entry(TypedDict):
 
 adapter = TypeAdapter(list[Entry])
 
-class Pockets(AuthEndpoint):
+class Pockets(Endpoint):
   async def pockets(
     self,
     pocket_id: str,

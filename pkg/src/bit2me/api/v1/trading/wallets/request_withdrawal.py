@@ -1,7 +1,7 @@
 from typing_extensions import NotRequired, TypedDict
 from bit2me.types import WalletResponse
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class TradingWalletWithdrawalRequest(TypedDict):
   toPocketId: NotRequired[str]
@@ -12,7 +12,7 @@ class TradingWalletWithdrawalRequest(TypedDict):
 
 adapter = TypeAdapter(WalletResponse)
 
-class RequestWithdrawal(AuthEndpoint):
+class RequestWithdrawal(Endpoint):
   async def request_withdrawal(
     self,
     trading_wallet_withdrawal_request: TradingWalletWithdrawalRequest,

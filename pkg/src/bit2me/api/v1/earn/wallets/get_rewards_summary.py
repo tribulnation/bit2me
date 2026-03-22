@@ -1,6 +1,6 @@
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
-class GetRewardsSummary(AuthEndpoint):
+class GetRewardsSummary(Endpoint):
   async def get_rewards_summary(
     self,
     wallet_id: str,

@@ -1,3 +1,5 @@
+LICENSE
+README.md
 pyproject.toml
 src/bit2me/__init__.py
 src/bit2me/types.py

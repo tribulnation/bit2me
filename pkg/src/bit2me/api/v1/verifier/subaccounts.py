@@ -1,10 +1,10 @@
 from typing_extensions import Literal
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 adapter = TypeAdapter(str)
 
-class Subaccounts(AuthEndpoint):
+class Subaccounts(Endpoint):
   async def subaccounts(
     self,
     *,

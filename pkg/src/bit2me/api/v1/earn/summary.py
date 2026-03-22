@@ -1,6 +1,6 @@
 from typing_extensions import TypedDict
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class EarnUserSummaryResponse(TypedDict):
   currency: str
@@ -9,7 +9,7 @@ class EarnUserSummaryResponse(TypedDict):
 
 adapter = TypeAdapter(EarnUserSummaryResponse)
 
-class Summary(AuthEndpoint):
+class Summary(Endpoint):
   async def __call__(
     self,
     *,

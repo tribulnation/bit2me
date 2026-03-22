@@ -1,7 +1,7 @@
 from typing_extensions import TypedDict
 from bit2me.types import Phone
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class CreateSubaccountResponse(TypedDict):
   userId: str
@@ -14,7 +14,7 @@ class CreateSubaccountRequest(TypedDict):
 
 adapter = TypeAdapter(CreateSubaccountResponse)
 
-class Create(AuthEndpoint):
+class Create(Endpoint):
   async def __call__(
     self,
     create_subaccount_request: CreateSubaccountRequest,

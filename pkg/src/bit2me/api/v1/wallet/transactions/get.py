@@ -2,7 +2,7 @@ from datetime import datetime
 from typing_extensions import Literal, NotRequired, TypedDict
 from bit2me.types import AmountCurrencyObject, Rate, TransactionSubsFeeTypeParam
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class Flip(TypedDict):
   percentage: str
@@ -110,7 +110,7 @@ class WalletTransactionDetailResponse(TypedDict):
 
 adapter = TypeAdapter(WalletTransactionDetailResponse)
 
-class Get(AuthEndpoint):
+class Get(Endpoint):
   async def get(
     self,
     id: str,

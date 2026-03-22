@@ -1,10 +1,10 @@
 from bit2me.types import BooleanResultResponse
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 adapter = TypeAdapter(BooleanResultResponse)
 
-class Ibans(AuthEndpoint):
+class Ibans(Endpoint):
   async def __call__(self, *, iban: str, validate: bool = True) -> BooleanResultResponse:
     """Check whether an IBAN is valid.
     

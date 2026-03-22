@@ -1,7 +1,7 @@
 from typing_extensions import Literal, NotRequired, TypedDict
 from bit2me.types import BooleanResultResponse
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class TravelRuleInformationRequest(TypedDict):
   walletType: Literal['exchange', 'unhosted']
@@ -19,9 +19,10 @@ class TravelRuleInformationRequest(TypedDict):
 
 adapter = TypeAdapter(BooleanResultResponse)
 
-class TravelRuleOrders(AuthEndpoint):
+class TravelRuleOrders(Endpoint):
   async def travel_rule_orders(
     self,
+    order_id: str,
     travel_rule_information_request: TravelRuleInformationRequest,
     *,
     validate: bool = True
@@ -30,12 +31,13 @@ class TravelRuleOrders(AuthEndpoint):
     
     When you create a blockchain withdrawal, its status will be set to `waiting-user-information`. To proceed with the transaction, you must send the required Travel Rule parameters. If this information is not provided, the operation will remain in this status and will be automatically canceled within a few hours.
     
+    - `order_id`: The order ID
     - `travel_rule_information_request`
     - `validate`: Whether to validate the response against the expected schema (default: True) (default: None)
     
     [Official docs](https://api.bit2me.com/doc#tag/funding/POST/v1/blockchain-manager/travel-rule-order/{orderId})"""
     r = await self.authed_request(
-      'POST', f'/v1/blockchain-manager/travel-rule-order/{orderId}',
+      'POST', f'/v1/blockchain-manager/travel-rule-order/{order_id}',
       json=travel_rule_information_request
     )
     

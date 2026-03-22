@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing_extensions import NotRequired, TypedDict
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class FeeAmountLiquidated(TypedDict):
   value: NotRequired[str]
@@ -60,7 +60,7 @@ class ListLoanMovementsResponse(TypedDict):
 
 adapter = TypeAdapter(ListLoanMovementsResponse)
 
-class Movements(AuthEndpoint):
+class Movements(Endpoint):
   async def __call__(
     self,
     *,

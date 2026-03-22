@@ -1,10 +1,10 @@
 from bit2me.types import BooleanResultResponse
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 adapter = TypeAdapter(BooleanResultResponse)
 
-class Delete(AuthEndpoint):
+class Delete(Endpoint):
   async def delete(self, *, id: str, validate: bool = True) -> BooleanResultResponse:
     """Delete a pocket
     

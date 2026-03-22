@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing_extensions import NotRequired, TypedDict
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class GuaranteeCurrenciesItem(TypedDict):
   currencyConfigurationGuaranteeId: NotRequired[str]
@@ -30,7 +30,7 @@ class LoanCurrencyConfigResponse(TypedDict):
 
 adapter = TypeAdapter(LoanCurrencyConfigResponse)
 
-class Currencies(AuthEndpoint):
+class Currencies(Endpoint):
   async def currencies(self, *, validate: bool = True) -> LoanCurrencyConfigResponse:
     """Get the configuration of loan currencies. This includes which currencies are available for loans and which can be used as guarantee
     

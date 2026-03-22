@@ -1,6 +1,6 @@
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
-class Delete(AuthEndpoint):
+class Delete(Endpoint):
   async def delete(self, *, address_id: str, validate: bool = True):
     """Remove user address
     

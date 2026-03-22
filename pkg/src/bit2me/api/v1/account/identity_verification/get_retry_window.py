@@ -1,13 +1,13 @@
 from typing_extensions import TypedDict
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class IdentityVerificationRetryEligibilityResponse(TypedDict):
   result: bool
 
 adapter = TypeAdapter(IdentityVerificationRetryEligibilityResponse)
 
-class GetRetryWindow(AuthEndpoint):
+class GetRetryWindow(Endpoint):
   async def get_retry_window(
     self,
     *,

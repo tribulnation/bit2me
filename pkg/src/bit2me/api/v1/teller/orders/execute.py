@@ -1,10 +1,10 @@
 from typing_extensions import TypedDict
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class TellerOrderExecuteRequest(TypedDict):
   orderId: str
 
-class Execute(AuthEndpoint):
+class Execute(Endpoint):
   async def execute(
     self,
     teller_order_execute_request: TellerOrderExecuteRequest,

@@ -8,7 +8,7 @@ from bit2me.types import (
   TradeResponse
 )
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class ListTradingTradesResponse(TypedDict):
   count: NotRequired[float]
@@ -16,7 +16,7 @@ class ListTradingTradesResponse(TypedDict):
 
 adapter = TypeAdapter(ListTradingTradesResponse)
 
-class List(AuthEndpoint):
+class List(Endpoint):
   async def list(
     self,
     *,

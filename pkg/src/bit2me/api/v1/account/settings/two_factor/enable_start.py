@@ -1,6 +1,6 @@
 from typing_extensions import TypedDict
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class SettingsEnableTwoFactorStartResponse(TypedDict):
   qrImage: str
@@ -12,7 +12,7 @@ class SettingsEnableTwoFactorStartResponse(TypedDict):
 
 adapter = TypeAdapter(SettingsEnableTwoFactorStartResponse)
 
-class EnableStart(AuthEndpoint):
+class EnableStart(Endpoint):
   async def enable_start(
     self,
     *,

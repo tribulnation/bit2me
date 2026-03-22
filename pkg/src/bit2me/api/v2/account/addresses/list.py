@@ -1,10 +1,10 @@
 from bit2me.types import UserAddress
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 adapter = TypeAdapter(list[UserAddress])
 
-class List(AuthEndpoint):
+class List(Endpoint):
   async def list(
     self,
     *,

@@ -1,6 +1,6 @@
 from typing_extensions import NotRequired, TypedDict
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class Point(TypedDict):
   time: int
@@ -14,7 +14,7 @@ class Point(TypedDict):
 
 adapter = TypeAdapter(dict[str, dict[str, list[Point]]])
 
-class Ticker(AuthEndpoint):
+class Ticker(Endpoint):
   async def ticker(
     self,
     symbol: str,

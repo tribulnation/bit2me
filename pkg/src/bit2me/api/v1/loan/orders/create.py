@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing_extensions import NotRequired, TypedDict
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class CreateLoanRequest(TypedDict):
   guaranteeCurrency: str
@@ -34,7 +34,7 @@ class CreateLoanResponse(TypedDict):
 
 adapter = TypeAdapter(CreateLoanResponse)
 
-class Create(AuthEndpoint):
+class Create(Endpoint):
   async def create(
     self,
     create_loan_request: CreateLoanRequest,

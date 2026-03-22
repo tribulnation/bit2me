@@ -1,6 +1,6 @@
 from typing_extensions import TypedDict
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class CurrencyMarketDataV3response(TypedDict):
   marketCap: str
@@ -11,7 +11,7 @@ class CurrencyMarketDataV3response(TypedDict):
 
 adapter = TypeAdapter(CurrencyMarketDataV3response)
 
-class MarketData(AuthEndpoint):
+class MarketData(Endpoint):
   async def market_data(
     self,
     symbol: str,

@@ -1,6 +1,6 @@
 from typing_extensions import Literal, NotRequired, TypedDict
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class SignInTwoFactorV3response(TypedDict):
   sfaType: Literal['gauth', 'email', 'sms', 'call', 'whatsapp']
@@ -8,7 +8,7 @@ class SignInTwoFactorV3response(TypedDict):
 
 adapter = TypeAdapter(SignInTwoFactorV3response)
 
-class TwoFactor(AuthEndpoint):
+class TwoFactor(Endpoint):
   async def two_factor(self, *, validate: bool = True) -> SignInTwoFactorV3response:
     """Get the active user verification method and initialize the verification process.
     

@@ -1,6 +1,6 @@
 from typing_extensions import NotRequired, TypedDict
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class DataItem(TypedDict):
   id: NotRequired[str]
@@ -14,7 +14,7 @@ class ListEmploymentStatusesResponse(TypedDict):
 
 adapter = TypeAdapter(ListEmploymentStatusesResponse)
 
-class EmploymentStatuses(AuthEndpoint):
+class EmploymentStatuses(Endpoint):
   async def __call__(
     self,
     *,

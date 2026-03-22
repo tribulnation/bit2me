@@ -1,5 +1,5 @@
-from bit2me.core.mixin import AuthRouter
+from bit2me.core.mixin import Router
 from .assets import Assets
 
-class Currency(AuthRouter):
+class Currency(Router):
   assets: Assets

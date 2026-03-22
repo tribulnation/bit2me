@@ -1,9 +1,9 @@
-from bit2me.core.mixin import AuthRouter
+from bit2me.core.mixin import Router
 from .ibans import Ibans
 from .orders import Orders
 from .pockets import Pockets
 
-class Teller(AuthRouter):
+class Teller(Router):
   ibans: Ibans
   orders: Orders
   pockets: Pockets

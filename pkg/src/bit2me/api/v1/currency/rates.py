@@ -1,6 +1,6 @@
 from typing_extensions import Any, Literal, TypedDict
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class Entry(TypedDict):
   fiat: dict[str, Any]
@@ -8,7 +8,7 @@ class Entry(TypedDict):
 
 adapter = TypeAdapter(list[Entry])
 
-class Rates(AuthEndpoint):
+class Rates(Endpoint):
   async def rates(
     self,
     *,

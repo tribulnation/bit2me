@@ -1,7 +1,7 @@
 from typing_extensions import NotRequired, TypedDict
 from bit2me.types import TokenResponse
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class SignInApiKeyRequest(TypedDict):
   userId: NotRequired[str]
@@ -11,7 +11,7 @@ class SignInApiKeyResponse(TypedDict):
 
 adapter = TypeAdapter(SignInApiKeyResponse)
 
-class ApiKey(AuthEndpoint):
+class ApiKey(Endpoint):
   async def api_key(
     self,
     sign_in_api_key_request: SignInApiKeyRequest,

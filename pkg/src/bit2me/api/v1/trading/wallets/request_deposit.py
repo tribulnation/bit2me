@@ -1,7 +1,7 @@
 from typing_extensions import TypedDict
 from bit2me.types import WalletResponse
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class TradingWalletDepositRequest(TypedDict):
   fromPocketId: str
@@ -12,7 +12,7 @@ class TradingWalletDepositRequest(TypedDict):
 
 adapter = TypeAdapter(WalletResponse)
 
-class RequestDeposit(AuthEndpoint):
+class RequestDeposit(Endpoint):
   async def request_deposit(
     self,
     trading_wallet_deposit_request: TradingWalletDepositRequest,

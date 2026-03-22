@@ -2,7 +2,7 @@ from datetime import datetime
 from typing_extensions import Literal, NotRequired, TypedDict, deprecated
 from bit2me.types import Rate
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class Transaction(TypedDict):
   """Network transaction"""
@@ -83,7 +83,7 @@ class ListWalletTransactionsResponse(TypedDict):
 
 adapter = TypeAdapter(ListWalletTransactionsResponse)
 
-class List(AuthEndpoint):
+class List(Endpoint):
   @deprecated('Deprecated method')
   async def list(
     self,

@@ -1,11 +1,11 @@
 from typing_extensions import Literal
 from bit2me.types import EarnWalletResponse
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 adapter = TypeAdapter(EarnWalletResponse)
 
-class Wallets(AuthEndpoint):
+class Wallets(Endpoint):
   async def wallets(
     self,
     *,

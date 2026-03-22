@@ -1,10 +1,10 @@
 from bit2me.types import EarnWalletRecord
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 adapter = TypeAdapter(EarnWalletRecord)
 
-class Get(AuthEndpoint):
+class Get(Endpoint):
   async def get(
     self,
     wallet_id: str,

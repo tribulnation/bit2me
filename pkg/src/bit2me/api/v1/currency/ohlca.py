@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing_extensions import Literal, TypedDict
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class CurrencyOhlcResponse(TypedDict):
   open: str
@@ -12,7 +12,7 @@ class CurrencyOhlcResponse(TypedDict):
 
 adapter = TypeAdapter(CurrencyOhlcResponse)
 
-class Ohlca(AuthEndpoint):
+class Ohlca(Endpoint):
   async def ohlca(
     self,
     symbol: str,

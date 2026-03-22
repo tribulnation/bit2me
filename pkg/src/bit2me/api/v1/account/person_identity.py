@@ -2,7 +2,7 @@ from datetime import datetime
 from typing_extensions import Literal, TypedDict
 from bit2me.types import BooleanResultResponse
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class UpdatePersonIdentityRequest(TypedDict):
   type: Literal['none', 'idcard', 'passport', 'drivinglicense', 'visa']
@@ -12,7 +12,7 @@ class UpdatePersonIdentityRequest(TypedDict):
 
 adapter = TypeAdapter(BooleanResultResponse)
 
-class PersonIdentity(AuthEndpoint):
+class PersonIdentity(Endpoint):
   async def __call__(
     self,
     update_person_identity_request: UpdatePersonIdentityRequest,

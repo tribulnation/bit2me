@@ -1,10 +1,10 @@
 from bit2me.types import OrderResponse
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 adapter = TypeAdapter(OrderResponse)
 
-class Cancel(AuthEndpoint):
+class Cancel(Endpoint):
   async def cancel(self, id: str, *, validate: bool = True) -> OrderResponse:
     """Cancel the order by identifier if this order is open or inactive.
     

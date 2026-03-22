@@ -1,10 +1,10 @@
 from bit2me.types import TradeResponse
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 adapter = TypeAdapter(list[TradeResponse])
 
-class ListTrades(AuthEndpoint):
+class ListTrades(Endpoint):
   async def list_trades(self, id: str, *, validate: bool = True) -> list[TradeResponse]:
     """Get all trades associated to the order.
     

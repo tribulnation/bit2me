@@ -1,7 +1,7 @@
 from typing_extensions import NotRequired, TypedDict
 from bit2me.types import Phone
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class DataItem(TypedDict):
   id: NotRequired[str]
@@ -16,7 +16,7 @@ class ListSubaccountsResponse(TypedDict):
 
 adapter = TypeAdapter(ListSubaccountsResponse)
 
-class List(AuthEndpoint):
+class List(Endpoint):
   async def __call__(self, *, validate: bool = True) -> ListSubaccountsResponse:
     """Return the user's subaccounts.
     

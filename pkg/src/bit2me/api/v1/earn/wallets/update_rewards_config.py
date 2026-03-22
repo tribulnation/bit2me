@@ -1,6 +1,6 @@
 from typing_extensions import TypedDict
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class UpdateEarnWalletRewardCurrencyRequest(TypedDict):
   rewardCurrency: str
@@ -11,7 +11,7 @@ class UpdateEarnWalletRewardCurrencyResponse(TypedDict):
 
 adapter = TypeAdapter(UpdateEarnWalletRewardCurrencyResponse)
 
-class UpdateRewardsConfig(AuthEndpoint):
+class UpdateRewardsConfig(Endpoint):
   async def update_rewards_config(
     self,
     wallet_id: str,

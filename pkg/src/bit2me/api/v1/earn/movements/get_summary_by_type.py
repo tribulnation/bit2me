@@ -1,6 +1,6 @@
 from typing_extensions import Literal, NotRequired, TypedDict
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class Converted(TypedDict):
   amount: NotRequired[str]
@@ -19,7 +19,7 @@ class Entry(TypedDict):
 
 adapter = TypeAdapter(list[Entry])
 
-class GetSummaryByType(AuthEndpoint):
+class GetSummaryByType(Endpoint):
   async def get_summary_by_type(
     self,
     type: Literal['deposit', 'reward', 'withdrawal'],

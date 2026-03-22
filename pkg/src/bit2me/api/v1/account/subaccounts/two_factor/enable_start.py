@@ -1,6 +1,6 @@
 from typing_extensions import TypedDict
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class InitSubaccountTwoFactorRequest(TypedDict):
   subaccountUserId: str
@@ -10,7 +10,7 @@ class InitSubaccountTwoFactorResponse(TypedDict):
 
 adapter = TypeAdapter(InitSubaccountTwoFactorResponse)
 
-class EnableStart(AuthEndpoint):
+class EnableStart(Endpoint):
   async def enable_start(
     self,
     init_subaccount_two_factor_request: InitSubaccountTwoFactorRequest,

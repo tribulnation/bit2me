@@ -7,7 +7,7 @@ from bit2me.types import (
   UserType
 )
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class Address(TypedDict):
   country: str
@@ -52,7 +52,7 @@ class UpdateAccountRequest(TypedDict):
 
 adapter = TypeAdapter(BooleanResultResponse)
 
-class Update(AuthEndpoint):
+class Update(Endpoint):
   async def __call__(
     self,
     update_account_request: UpdateAccountRequest,

@@ -7,7 +7,7 @@ from bit2me.types import (
   TimeInForce
 )
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class TradingOrdersCreateRequest(TypedDict):
   side: OrderSide
@@ -26,7 +26,7 @@ class TradingOrdersCreateRequest(TypedDict):
 
 adapter = TypeAdapter(OrderResponse)
 
-class Create(AuthEndpoint):
+class Create(Endpoint):
   async def create(
     self,
     trading_orders_create_request: TradingOrdersCreateRequest,

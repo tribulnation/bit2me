@@ -2,7 +2,7 @@ from datetime import datetime
 from typing_extensions import TypedDict
 from bit2me.types import PocketColor
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class Entry(TypedDict):
   id: str
@@ -17,7 +17,7 @@ class Entry(TypedDict):
 
 adapter = TypeAdapter(list[Entry])
 
-class Get(AuthEndpoint):
+class Get(Endpoint):
   async def get(self, *, id: str | None = None, validate: bool = True) -> list[Entry]:
     """Get the data of a specific pocket or the data of all pockets of the user (if the *id* param is not set)
     

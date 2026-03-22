@@ -1,5 +1,5 @@
-from bit2me.core.mixin import AuthRouter
+from bit2me.core.mixin import Router
 from .two_factor import TwoFactor
 
-class Settings(AuthRouter):
+class Settings(Router):
   two_factor: TwoFactor

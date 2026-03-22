@@ -1,9 +1,9 @@
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 adapter = TypeAdapter(None)
 
-class Delete(AuthEndpoint):
+class Delete(Endpoint):
   async def __call__(self, *, validate: bool = True) -> None:
     """Delete user account
     

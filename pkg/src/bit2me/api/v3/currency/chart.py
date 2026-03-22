@@ -1,9 +1,9 @@
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 adapter = TypeAdapter(list[list[float | None]])
 
-class Chart(AuthEndpoint):
+class Chart(Endpoint):
   async def chart(
     self,
     *,

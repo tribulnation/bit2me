@@ -8,8 +8,8 @@ from .exc import ApiError
 
 T = TypeVar('T')
 
-@dataclass(kw_only=True)
-class Endpoint(HttpMixin):
+@dataclass
+class Endpoint(AuthHttpMixin):
   default_validate: bool = True
 
   def should_validate(self, validate_param: bool | None = None) -> bool:
@@ -21,9 +21,6 @@ class Endpoint(HttpMixin):
     except:
       payload = response.text
     raise ApiError.of(response.status_code, payload)
-
-@dataclass
-class AuthEndpoint(Endpoint, AuthHttpMixin):
 
   @classmethod
   def new(
@@ -47,7 +44,3 @@ class Router(Endpoint):
     for field, cls in self.__annotations__.items():
       if issubclass(cls, Endpoint) or issubclass(cls, Router):
         setattr(self, field, cls(base_url=self.base_url, http=self.http, default_validate=self.default_validate))
-
-@dataclass
-class AuthRouter(Router, AuthEndpoint):
-  ...

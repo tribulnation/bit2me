@@ -1,4 +1,4 @@
-from bit2me.core.mixin import AuthRouter
+from bit2me.core.mixin import Router
 from .addresses import Addresses
 from .delete import Delete
 from .deposit_estimations import DepositEstimations
@@ -12,7 +12,7 @@ from .settings import Settings
 from .subaccounts import Subaccounts
 from .update import Update
 
-class Account(AuthRouter):
+class Account(Router):
   addresses: Addresses
   delete: Delete
   deposit_estimations: DepositEstimations

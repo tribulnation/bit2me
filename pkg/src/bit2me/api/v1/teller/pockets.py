@@ -1,6 +1,6 @@
 from typing_extensions import Any, TypedDict
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class Pocket(TypedDict):
   userId: str
@@ -13,7 +13,7 @@ class TellerPocketReferenceResponse(TypedDict):
 
 adapter = TypeAdapter(TellerPocketReferenceResponse)
 
-class Pockets(AuthEndpoint):
+class Pockets(Endpoint):
   async def __call__(
     self,
     *,

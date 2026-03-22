@@ -1,6 +1,6 @@
 from typing_extensions import Literal, NotRequired, TypedDict
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class KycVerificationInitV3request(TypedDict):
   locale: str
@@ -17,7 +17,7 @@ class KycVerificationInitV3response(TypedDict):
 
 adapter = TypeAdapter(KycVerificationInitV3response)
 
-class IdentityVerification(AuthEndpoint):
+class IdentityVerification(Endpoint):
   async def identity_verification(
     self,
     kyc_verification_init_v3request: KycVerificationInitV3request,

@@ -1,10 +1,10 @@
 from bit2me.types import PayOrderData
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 adapter = TypeAdapter(list[PayOrderData])
 
-class List(AuthEndpoint):
+class List(Endpoint):
   async def list(self, *, validate: bool = True) -> list[PayOrderData]:
     """Get all pending pay order of a user
     

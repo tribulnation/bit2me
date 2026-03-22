@@ -1,7 +1,7 @@
 from typing_extensions import NotRequired, TypedDict
 from bit2me.types import PayOrderData, PayOrderType, Phone
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class SocialPayOrderRequest(TypedDict):
   pocketId: str
@@ -16,7 +16,7 @@ class SocialPayOrderRequest(TypedDict):
 
 adapter = TypeAdapter(PayOrderData)
 
-class Create(AuthEndpoint):
+class Create(Endpoint):
   async def create(
     self,
     social_pay_order_request: SocialPayOrderRequest,

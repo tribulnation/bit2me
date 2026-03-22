@@ -1,7 +1,7 @@
 from typing_extensions import NotRequired, TypedDict
 from bit2me.types import CreatedResourceIdResponse
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class ExecuteWalletTransactionRequest(TypedDict):
   proforma: str
@@ -10,7 +10,7 @@ class ExecuteWalletTransactionRequest(TypedDict):
 
 adapter = TypeAdapter(CreatedResourceIdResponse)
 
-class Execute(AuthEndpoint):
+class Execute(Endpoint):
   async def execute(
     self,
     execute_wallet_transaction_request: ExecuteWalletTransactionRequest,

@@ -1,7 +1,7 @@
 from typing_extensions import NotRequired, TypedDict
 from bit2me.types import UserAddress
 from pydantic import TypeAdapter
-from bit2me.core import AuthEndpoint
+from bit2me.core import Endpoint
 
 class UserAddressBody(TypedDict):
   id: NotRequired[str]
@@ -21,7 +21,7 @@ class UserAddressBody(TypedDict):
 
 adapter = TypeAdapter(UserAddress)
 
-class Create(AuthEndpoint):
+class Create(Endpoint):
   async def create(
     self,
     user_address_body: UserAddressBody,
